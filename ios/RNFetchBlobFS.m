@@ -123,11 +123,11 @@ NSMutableDictionary *fileStreams = nil;
 
 + (NSString *) getTempPath:(NSString*)taskId withExtension:(NSString *)ext {
 
-    NSString * documentDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSString * cacheDir = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
     NSString * filename = [NSString stringWithFormat:@"/RNFetchBlob_tmp/RNFetchBlobTmp_%@", taskId];
     if(ext != nil)
         filename = [filename stringByAppendingString: [NSString stringWithFormat:@".%@", ext]];
-    NSString * tempPath = [documentDir stringByAppendingString: filename];
+    NSString * tempPath = [cacheDir stringByAppendingString: filename];
     return tempPath;
 }
 
